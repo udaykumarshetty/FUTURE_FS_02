@@ -1,0 +1,26 @@
+[
+  {
+    "id": "p1",
+    "name": "Classic Tee",
+    "price": 19.99,
+    "image": "/images/shirt.jpg",
+    "description": "Soft cotton tee for everyday wear.",
+    "badge": "Best Seller"
+  },
+  {
+    "id": "p2",
+    "name": "Denim Jacket",
+    "price": 59.99,
+    "image": "/images/jacket.jpg",
+    "description": "Timeless denim with a modern fit.",
+    "badge": "New"
+  },
+  {
+    "id": "p3",
+    "name": "Sneakers",
+    "price": 74.5,
+    "image": "/images/shoes.jpg",
+    "description": "Comfortable all‑day sneakers.",
+    "badge": null
+  }
+]

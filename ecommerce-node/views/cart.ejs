@@ -1,0 +1,49 @@
+<% layout('layout') -%>
+<h1>Your Cart</h1>
+<% if (!cart.length) { %>
+  <p>Your cart is empty. <a href="/">Continue shopping</a>.</p>
+<% } else { %>
+  <table class="cart-table">
+    <thead>
+      <tr>
+        <th>Item</th><th>Price</th><th>Qty</th><th>Line</th><th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% cart.forEach(item => { %>
+        <tr>
+          <td>
+            <div class="cart-item">
+              <img src="<%= item.image %>" alt="<%= item.name %>">
+              <span><%= item.name %></span>
+            </div>
+          </td>
+          <td>$<%= item.price.toFixed(2) %></td>
+          <td>
+            <form action="/cart/update" method="post" class="inline">
+              <input type="hidden" name="id" value="<%= item.id %>">
+              <input type="number" name="qty" min="0" value="<%= item.qty %>">
+              <button class="btn btn-sm" type="submit">Update</button>
+            </form>
+          </td>
+          <td>$<%= (item.price * item.qty).toFixed(2) %></td>
+          <td>
+            <form action="/cart/remove" method="post" class="inline">
+              <input type="hidden" name="id" value="<%= item.id %>">
+              <button class="btn btn-outline btn-sm" type="submit">Remove</button>
+            </form>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+
+  <div class="totals">
+    <div>Subtotal: <strong>$<%= totals.subtotal.toFixed(2) %></strong></div>
+    <div>Shipping: <strong>$<%= totals.shipping.toFixed(2) %></strong></div>
+    <div>Tax (10%): <strong>$<%= totals.tax.toFixed(2) %></strong></div>
+    <div class="grand">Total: <strong>$<%= totals.total.toFixed(2) %></strong></div>
+  </div>
+
+  <a class="btn" href="/checkout">Proceed to Checkout</a>
+<% } %>

@@ -1,0 +1,16 @@
+<% layout('layout') -%>
+<h1>Checkout</h1>
+<% if (!cart.length) { %>
+  <p>Order placed! 🎉 Your cart is empty now. <a href="/">Back to store</a>.</p>
+<% } else { %>
+  <p>Review your order:</p>
+  <ul>
+    <% cart.forEach(i => { %>
+      <li><%= i.qty %> × <%= i.name %> — $<%= (i.qty * i.price).toFixed(2) %></li>
+    <% }) %>
+  </ul>
+  <p><strong>Total: $<%= totals.total.toFixed(2) %></strong></p>
+  <form action="/checkout" method="post">
+    <button class="btn" type="submit">Pay (Mock)</button>
+  </form>
+<% } %>

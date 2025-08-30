@@ -1,0 +1,34 @@
+:root { --bg:#0b0d10; --card:#13161a; --muted:#9aa4b2; --accent:#4f8cff; --text:#e6eef8; }
+*{box-sizing:border-box} body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;background:var(--bg);color:var(--text);}
+a{color:var(--accent);text-decoration:none}
+.container{max-width:1080px;margin:0 auto;padding:24px}
+.site-header{background:#0f1216;border-bottom:1px solid #1c222b}
+.header-inner{display:flex;align-items:center;justify-content:space-between}
+.brand{font-weight:700;font-size:20px;color:#fff}
+nav a{margin-left:16px;color:#cdd7e3}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px}
+.card{background:var(--card);border:1px solid #1c222b;border-radius:14px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,.2)}
+.card img{width:100%;height:180px;object-fit:cover;background:#222}
+.card-body{padding:16px}
+.price{font-weight:700}
+.badge{display:inline-block;background:#24324a;color:#a9c4ff;border:1px solid #28406b;padding:3px 8px;border-radius:999px;font-size:12px;margin-bottom:8px}
+.btn{background:var(--accent);color:#fff;border:0;border-radius:10px;padding:10px 14px;cursor:pointer;font-weight:600}
+.btn:hover{filter:brightness(1.05)}
+.btn-outline{background:transparent;border:1px solid #2b3644;color:#c9d5e6}
+.btn-sm{padding:6px 10px;font-size:12px;border-radius:8px}
+.inline{display:inline-flex;gap:8px;align-items:center}
+
+.product{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.product img{width:100%;border-radius:14px;border:1px solid #1c222b}
+.product-info{background:var(--card);padding:16px;border-radius:14px;border:1px solid #1c222b}
+.qty-row input[type=number]{width:80px;padding:8px;border-radius:8px;border:1px solid #2b3644;background:#0e1115;color:#e6eef8}
+
+.cart-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:14px;overflow:hidden}
+.cart-table th, .cart-table td{padding:12px;border-bottom:1px solid #1c222b}
+.cart-item{display:flex;gap:12px;align-items:center}
+.cart-item img{width:56px;height:56px;border-radius:8px;object-fit:cover;border:1px solid #1c222b}
+.totals{margin:16px 0;display:grid;gap:6px;max-width:320px}
+.totals .grand{font-size:18px}
+
+@media (max-width:800px){ .product{grid-template-columns:1fr} }

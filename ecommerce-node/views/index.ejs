@@ -1,0 +1,19 @@
+<% layout('layout') -%>
+<section class="grid">
+  <% products.forEach(p => { %>
+    <article class="card">
+      <a href="/product/<%= p.id %>"><img src="<%= p.image %>" alt="<%= p.name %>"></a>
+      <div class="card-body">
+        <h3><a href="/product/<%= p.id %>"><%= p.name %></a></h3>
+        <p class="price">$<%= p.price.toFixed(2) %></p>
+        <% if (p.badge) { %>
+          <span class="badge"><%= p.badge %></span>
+        <% } %>
+        <form action="/cart/add" method="post">
+          <input type="hidden" name="id" value="<%= p.id %>">
+          <button type="submit" class="btn">Add to Cart</button>
+        </form>
+      </div>
+    </article>
+  <% }) %>
+</section>
